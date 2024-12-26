@@ -22,7 +22,6 @@ def safe(row):
     
     return increasing or decreasing
 
-
 def part1():
     ans = 0
     
