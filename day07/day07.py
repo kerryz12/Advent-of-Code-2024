@@ -11,36 +11,36 @@ for line in input:
     answers.append(temp[0][:-1])
     values.append([int(t) for t in temp[1:]])
 
-def backtrack(values, curr, index, target):
+def backtrack(values, curr, index, answer):
     if index == len(values):
-        return curr == target
+        return curr == answer
     
     if index == 0:
-        return backtrack(values, values[0], 1, target)
+        return backtrack(values, values[0], 1, answer)
     
-    if backtrack(values, curr + values[index], index + 1, target):
+    if backtrack(values, curr + values[index], index + 1, answer):
         return True
         
-    if backtrack(values, curr * values[index], index + 1, target):
+    if backtrack(values, curr * values[index], index + 1, answer):
         return True
         
     return False
 
-def backtrack2(values, curr, index, target):
+def backtrack2(values, curr, index, answer):
     if index == len(values):
-        return curr == target
+        return curr == answer
     
     if index == 0:
-        return backtrack2(values, values[0], 1, target)
+        return backtrack2(values, values[0], 1, answer)
     
-    if backtrack2(values, curr + values[index], index + 1, target):
+    if backtrack2(values, curr + values[index], index + 1, answer):
         return True
         
-    if backtrack2(values, curr * values[index], index + 1, target):
+    if backtrack2(values, curr * values[index], index + 1, answer):
         return True
 
     concat = int(str(curr) + str(values[index]))
-    if backtrack2(values, concat, index + 1, target):
+    if backtrack2(values, concat, index + 1, answer):
         return True
         
     return False
