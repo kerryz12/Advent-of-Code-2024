@@ -18,14 +18,6 @@ updates = []
 for line in input[separator+1:]:
     updates.append(line.split(','))
 
-def is_valid(pages, rules):
-    for i, before in enumerate(pages):
-        for after in pages[i+1:]:
-            if before in rules and after in rules[before]:
-                return False
-            
-    return True
-
 def part1():
     ans = 0
         
